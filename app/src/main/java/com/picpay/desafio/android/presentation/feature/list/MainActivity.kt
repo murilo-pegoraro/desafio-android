@@ -1,4 +1,4 @@
-package com.picpay.desafio.android
+package com.picpay.desafio.android.presentation.feature.list
 
 import android.view.View
 import android.widget.ProgressBar
@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
+import com.picpay.desafio.android.R
 import com.picpay.desafio.android.data.model.UserApi
 import com.picpay.desafio.android.data.remote.api.PicPayService
 import okhttp3.OkHttpClient
@@ -50,7 +51,8 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
         recyclerView = findViewById(R.id.recyclerView)
         progressBar = findViewById(R.id.user_list_progress_bar)
 
-        adapter = UserListAdapter()
+        adapter =
+            UserListAdapter()
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(this)
 
