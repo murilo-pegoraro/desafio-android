@@ -57,7 +57,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
         recyclerView.layoutManager = LinearLayoutManager(this)
 
         progressBar.visibility = View.VISIBLE
-        service.getUsers()
+        service.getUsers_OLD()
             .enqueue(object : Callback<List<UserApi>> {
                 override fun onFailure(call: Call<List<UserApi>>, t: Throwable) {
                     val message = getString(R.string.error)

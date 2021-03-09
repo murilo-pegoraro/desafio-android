@@ -22,7 +22,7 @@ class ExampleServiceTest {
         val expectedUsers = emptyList<UserApi>()
 
         whenever(call.execute()).thenReturn(Response.success(expectedUsers))
-        whenever(api.getUsers()).thenReturn(call)
+        whenever(api.getUsers_OLD()).thenReturn(call)
 
         // when
         val users = service.example()

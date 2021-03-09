@@ -12,7 +12,7 @@ private const val CONNECT_TIMEOUT = 20L
 private const val READ_TIMEOUT = 20L
 private const val WRITE_TIMEOUT = 20L
 
-val RemoteModule = module {
+val remoteModule = module {
     single { createWebService<PicPayService>(get()) }
     single { providesOkHttpClient() }
 

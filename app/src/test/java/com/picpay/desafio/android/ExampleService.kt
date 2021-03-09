@@ -8,7 +8,7 @@ class ExampleService(
 ) {
 
     fun example(): List<UserApi> {
-        val users = service.getUsers().execute()
+        val users = service.getUsers_OLD().execute()
 
         return users.body() ?: emptyList()
     }
