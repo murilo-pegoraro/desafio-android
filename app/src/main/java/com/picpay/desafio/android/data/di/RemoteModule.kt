@@ -15,7 +15,6 @@ private const val WRITE_TIMEOUT = 20L
 val remoteModule = module {
     single { createWebService<PicPayService>(get()) }
     single { providesOkHttpClient() }
-
 }
 
 inline fun <reified T> createWebService(okHttpClient: OkHttpClient): T {

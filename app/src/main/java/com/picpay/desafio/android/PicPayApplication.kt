@@ -2,6 +2,7 @@ package com.picpay.desafio.android
 
 import android.app.Application
 import com.picpay.desafio.android.data.di.dataModules
+import com.picpay.desafio.android.domain.di.domainModules
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 
@@ -12,7 +13,7 @@ class PicPayApplication : Application() {
 
         startKoin {
             androidContext(this@PicPayApplication)
-            modules(dataModules)
+            modules(dataModules + domainModules)
         }
     }
 }
