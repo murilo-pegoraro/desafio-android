@@ -15,7 +15,11 @@ class UserListViewModel(
     private val _viewUserListStatesLiveData = MutableLiveData<UserListStates>()
     val viewUserListStatesLiveData: LiveData<UserListStates> = _viewUserListStatesLiveData
 
-    fun getUsers() {
+    init {
+        getUsers()
+    }
+
+    private fun getUsers() {
         userListUseCase.getUserList()
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())

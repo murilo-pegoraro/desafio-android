@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.picpay.desafio.android.R
 import com.picpay.desafio.android.databinding.ActivityUserListBinding
 import com.picpay.desafio.android.domain.model.User
+import com.picpay.desafio.android.presentation.extension.toToast
 import com.picpay.desafio.android.presentation.extension.visible
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -23,7 +24,6 @@ class UserListActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_user_list)
         binding.lifecycleOwner = this
-
         initViews()
         initViewModel()
     }
@@ -35,7 +35,6 @@ class UserListActivity : AppCompatActivity() {
     }
 
     private fun initViewModel() {
-        viewModel.getUsers()
         viewModel.viewUserListStatesLiveData.observe(this, Observer {
             when (it) {
                 is UserListStates.LoadingState -> showLoading(it.visible)
@@ -56,17 +55,14 @@ class UserListActivity : AppCompatActivity() {
         showLoading(false)
         showList(false)
 
-        val message = getString(R.string.empty_list)
-        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+        getString(R.string.empty_list).toToast(this)
     }
 
     private fun showError() {
         showLoading(false)
         showList(false)
 
-        val message = getString(R.string.error)
-        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
-
+        getString(R.string.error).toToast(this)
     }
 
     private fun showLoading(visible: Boolean) {

@@ -2,11 +2,11 @@ package com.picpay.desafio.android.presentation.extension
 
 import android.view.View
 
-private fun View.show() {
+fun View.show() {
     this.visibility = View.VISIBLE
 }
 
-private fun View.hide() {
+fun View.hide() {
     this.visibility = View.GONE
 }
 
