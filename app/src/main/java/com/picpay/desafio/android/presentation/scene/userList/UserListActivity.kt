@@ -1,7 +1,6 @@
 package com.picpay.desafio.android.presentation.scene.userList
 
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
