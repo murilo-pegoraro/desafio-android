@@ -6,7 +6,7 @@ import com.picpay.desafio.android.R
 import com.picpay.desafio.android.data.model.UserApi
 import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.list_item_user.view.*
+import kotlinx.android.synthetic.main.list_item_user_old.view.*
 
 class UserListItemViewHolder(
     itemView: View
