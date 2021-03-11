@@ -1,6 +1,7 @@
 package com.picpay.desafio.android.presentation.scene.userList
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
@@ -8,7 +9,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.picpay.desafio.android.R
 import com.picpay.desafio.android.databinding.ActivityUserListBinding
 import com.picpay.desafio.android.domain.model.User
-import com.picpay.desafio.android.presentation.extension.toToast
 import com.picpay.desafio.android.presentation.extension.visible
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -54,14 +54,14 @@ class UserListActivity : AppCompatActivity() {
         showLoading(false)
         showList(false)
 
-        getString(R.string.empty_list).toToast(this)
+        Toast.makeText(this, getString(R.string.empty_list), Toast.LENGTH_SHORT).show()
     }
 
     private fun showError() {
         showLoading(false)
         showList(false)
 
-        getString(R.string.error).toToast(this)
+        Toast.makeText(this, getString(R.string.error), Toast.LENGTH_SHORT).show()
     }
 
     private fun showLoading(visible: Boolean) {
