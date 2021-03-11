@@ -1,6 +1,6 @@
 package com.picpay.desafio.android
 
-import com.picpay.desafio.android.data.model.UserApi
+import com.picpay.desafio.android.data.remote.model.UserApi
 import com.picpay.desafio.android.data.remote.api.PicPayService
 
 class ExampleService(
