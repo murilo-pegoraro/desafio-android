@@ -1,10 +1,9 @@
-package com.picpay.desafio.android.data.service
+package com.picpay.desafio.android.data.remote
 
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.whenever
 import com.picpay.desafio.android.data.remote.model.UserApi
 import com.picpay.desafio.android.data.remote.api.PicPayService
-import com.picpay.desafio.android.data.service.ExampleService
 import junit.framework.Assert.assertEquals
 import org.junit.Test
 import retrofit2.Call
