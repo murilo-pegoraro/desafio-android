@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1001,
+    "name": "name1",
+    "img": "https://fakeurl.com/photo1.png",
+    "username": "username1"
+  },
+  {
+    "id": 1002,
+    "name": "name2",
+    "img": "https://fakeurl.com/photo2.png",
+    "username": "username2"
+  },
+  {
+    "id": 1003,
+    "name": "name3",
+    "img": "https://fakeurl.com/photo3.png",
+    "username": "username3"
+  },
+  {
+    "id": 1004,
+    "name": "name4",
+    "img": "https://fakeurl.com/photo4.png",
+    "username": "username4"
+  },
+  {
+    "id": 1005,
+    "name": "name5",
+    "img": "https://fakeurl.com/photo5.png",
+    "username": "username5"
+  }
+]
