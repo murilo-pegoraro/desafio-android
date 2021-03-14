@@ -3,6 +3,7 @@ package com.picpay.desafio.android.data.di
 import com.picpay.desafio.android.BuildConfig
 import com.picpay.desafio.android.data.remote.api.PicPayService
 import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
@@ -29,9 +30,16 @@ inline fun <reified T> createWebService(okHttpClient: OkHttpClient): T {
 }
 
 fun providesOkHttpClient(): OkHttpClient {
-    return OkHttpClient.Builder()
-        .connectTimeout(CONNECT_TIMEOUT, TimeUnit.SECONDS)
-        .readTimeout(READ_TIMEOUT, TimeUnit.SECONDS)
-        .writeTimeout(WRITE_TIMEOUT, TimeUnit.SECONDS)
-        .build()
+    return OkHttpClient.Builder().apply {
+        connectTimeout(CONNECT_TIMEOUT, TimeUnit.SECONDS)
+        readTimeout(READ_TIMEOUT, TimeUnit.SECONDS)
+        writeTimeout(WRITE_TIMEOUT, TimeUnit.SECONDS)
+        if (BuildConfig.DEBUG) {
+            addInterceptor(createLogInterceptor())
+        }
+    }.build()
+}
+
+private fun createLogInterceptor() = HttpLoggingInterceptor().apply {
+    this.level = HttpLoggingInterceptor.Level.BODY
 }
