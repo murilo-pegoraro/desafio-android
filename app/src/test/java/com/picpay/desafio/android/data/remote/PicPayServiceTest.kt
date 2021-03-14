@@ -1,46 +1,16 @@
 package com.picpay.desafio.android.data.remote
 
-import com.google.gson.Gson
 import com.picpay.desafio.android.MockFileReader
+import com.picpay.desafio.android.data.base.BaseServiceTest
 import com.picpay.desafio.android.data.remote.api.PicPayService
 import com.picpay.desafio.android.data.remote.model.UserApi
 import junit.framework.Assert.assertNotNull
 import okhttp3.mockwebserver.MockResponse
-import okhttp3.mockwebserver.MockWebServer
-import org.junit.After
-import org.junit.Before
 import org.junit.Test
-import org.mockito.MockitoAnnotations
 import retrofit2.HttpException
-import retrofit2.Retrofit
-import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
-import retrofit2.converter.gson.GsonConverterFactory
 import java.net.HttpURLConnection
 
-class PicPayServiceTest {
-
-    private lateinit var mockWebServer: MockWebServer
-
-    private lateinit var service: PicPayService
-
-    @Before
-    fun setup() {
-        MockitoAnnotations.initMocks(this)
-        mockWebServer = MockWebServer()
-        mockWebServer.start()
-
-        service = Retrofit.Builder()
-            .baseUrl(mockWebServer.url("/"))
-            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-            .addConverterFactory(GsonConverterFactory.create(Gson()))
-            .build()
-            .create(PicPayService::class.java)
-    }
-
-    @After
-    fun teardown() {
-        mockWebServer.shutdown()
-    }
+class PicPayServiceTest : BaseServiceTest() {
 
     @Test
     fun `given read user list file expected return success behavior`() {
